@@ -17,9 +17,9 @@ namespace Application.UseCases.Products
             _productRepository = productRepository;
         }
 
-        public IEnumerable<Product> Execute()
+        public async Task<IEnumerable<Product>> Execute()
         {
-            return _productRepository.GetProducts();
+            return await _productRepository.GetProducts();
         }
     }
 }

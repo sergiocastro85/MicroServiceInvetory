@@ -17,9 +17,9 @@ namespace Application.UseCases.Products
             _productRepository = productRepository;
         }
 
-        public void Execute(Product product)
+        public async Task Execute(Product product)
         {
-            _productRepository.AddProduct(product);
+            await _productRepository.AddProduct(product);
         }
     }
 }

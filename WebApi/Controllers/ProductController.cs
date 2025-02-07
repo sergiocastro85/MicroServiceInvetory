@@ -27,33 +27,33 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> GetProducts()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            return _getAllProducts.Execute();
+            return await _getAllProducts.Execute();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Product> GetProduct(int id) 
+        public async Task< ActionResult<Product>> GetProduct(int id) 
         {
-            var product = _getProductById.Execute(id);
+            var product = await _getProductById.Execute(id);
             if (product==null)
             {
                 return NotFound();
             }
 
-            return product;
+            return  product;
         }
 
         [HttpPost]
-        public ActionResult AddProduct([FromBody] Product product)
+        public async Task<ActionResult> AddProduct([FromBody] Product product)
         {
 
-            _addProduct.Execute(product);
+            await _addProduct.Execute(product);
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
         [HttpPut("{id}")]
-        public ActionResult PutUpdateProduct(int id, [FromBody] Product product)
+        public async Task<ActionResult> PutUpdateProduct(int id, [FromBody] Product product)
         {
             if (id != product.Id)
             {
@@ -62,7 +62,7 @@ namespace WebApi.Controllers
 
             try
             {
-                _updateProduct.Execute(product);
+                await _updateProduct.Execute(product);
             }
             catch (KeyNotFoundException)
             {
@@ -77,15 +77,15 @@ namespace WebApi.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteProduct(int id)
+        public async Task<ActionResult> DeleteProduct(int id)
         {
-            var product = _getProductById.Execute(id);
+            var product = await _getProductById.Execute(id);
             if (product == null)
             {
                 return NotFound();
             }
 
-            _deleteProduct.Execute(id);
+           await _deleteProduct.Execute(id);
             return NoContent();
         }
 

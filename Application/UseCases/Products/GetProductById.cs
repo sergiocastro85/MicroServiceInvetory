@@ -17,9 +17,9 @@ namespace Application.UseCases.Products
             _productRepository = productRepository;
         }
 
-        public Product Execute(int id)
+        public async Task<Product> Execute(int id)
         {
-            return _productRepository.GetProductById(id);
+            return await _productRepository.GetProductById(id);
         }
     }
 }

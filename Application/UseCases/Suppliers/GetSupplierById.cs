@@ -18,9 +18,9 @@ namespace Application.UseCases.Suppliers
             
         }
 
-        public Supplier Execute(int id)
+        public async Task<Supplier> Execute(int id)
         {
-            return _supplierRepository.GetSupplierById(id);
+            return await _supplierRepository.GetSupplierById(id);
         }
     }
 }

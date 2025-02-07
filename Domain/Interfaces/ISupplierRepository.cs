@@ -9,14 +9,14 @@ namespace Domain.Interfaces
 {
     public interface ISupplierRepository
     {
-        IEnumerable<Supplier> GetSuppliers();
+        Task<IEnumerable<Supplier>> GetSuppliers();
 
-        Supplier GetSupplierById(int id);
+        Task<Supplier> GetSupplierById(int id);
 
-        void AddSupplier(Supplier supplier);
+        Task AddSupplier(Supplier supplier);
 
-        void UpdateSupplier(Supplier supplier);
+        Task UpdateSupplier(Supplier supplier);
 
-        void DeleteSupplier(int id);
+        Task DeleteSupplier(int id);
     }
 }

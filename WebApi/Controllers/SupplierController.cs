@@ -33,15 +33,15 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Supplier> Get()
+        public async Task<IEnumerable<Supplier>> Get()
         {
-            return _getAllSuppliers.Execute();
+            return await _getAllSuppliers.Execute();
         }
 
         [HttpGet("{id}")]
-        public ActionResult<Supplier> GetById(int id)
+        public async Task<ActionResult<Supplier>> GetById(int id)
         {
-            var supplier = _getSupplierById.Execute(id);
+            var supplier = await _getSupplierById.Execute(id);
             if (supplier == null)
             {
                 return NotFound();
@@ -50,29 +50,29 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public ActionResult<Supplier> Post([FromBody] Supplier supplier)
+        public async Task<ActionResult<Supplier>> Post([FromBody] Supplier supplier)
         {
-            _addSupplier.Execute(supplier);
+            await _addSupplier.Execute(supplier);
             return CreatedAtAction(nameof(GetById), new { id = supplier.Id }, supplier);
         }
 
         [HttpPut("{id}")]
-        public ActionResult Put(int id, [FromBody] Supplier supplier)
+        public async Task<ActionResult> Put(int id, [FromBody] Supplier supplier)
         {
             if(id != supplier.Id)
             {
                 return BadRequest();
             }
-            _updateSupplier.Execute(supplier);
+            await _updateSupplier.Execute(supplier);
 
             return NoContent();
         }
 
 
         [HttpDelete("{id}")]
-        public ActionResult Delete(int id)
+        public async Task<ActionResult> Delete(int id)
         {
-            _deleteSupplier.Execute(id);
+            await _deleteSupplier.Execute(id);
             return NoContent();
         }
     }

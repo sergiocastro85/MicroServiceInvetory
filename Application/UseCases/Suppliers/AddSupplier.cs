@@ -18,9 +18,9 @@ namespace Application.UseCases.Suppliers
             
         }
 
-        public void Execute(Supplier supplier)
+        public async Task Execute(Supplier supplier)
         {
-            _supplierRepository.AddSupplier(supplier);
+            await _supplierRepository.AddSupplier(supplier);
         }
     }
 }

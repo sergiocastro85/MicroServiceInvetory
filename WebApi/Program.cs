@@ -6,22 +6,19 @@ using Application.UseCases.Products;
 using Microsoft.AspNetCore.Builder;
 using Application.UseCases.Suppliers;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-//configure connetion string
-
+// Configure connection string
 builder.Services.AddDbContext<InventoryContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-//Register Repositories
-
+// Register Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 
-//Register Use Cases
+// Register Use Cases
 builder.Services.AddScoped<GetAllProducts>();
 builder.Services.AddScoped<GetProductById>();
 builder.Services.AddScoped<AddProduct>();
@@ -34,16 +31,25 @@ builder.Services.AddScoped<AddSupplier>();
 builder.Services.AddScoped<UpdateSupplier>();
 builder.Services.AddScoped<DeleteSupplier>();
 
-// Add services to the container.
+// Add CORS configuration
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAngularClient", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200") // URL de tu aplicación Angular
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
+// Add services to the container
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -51,6 +57,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Enable CORS before authorization and controllers
+app.UseCors("AllowAngularClient");
 
 app.UseAuthorization();
 

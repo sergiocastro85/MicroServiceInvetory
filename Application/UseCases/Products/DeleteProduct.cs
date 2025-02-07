@@ -16,9 +16,9 @@ namespace Application.UseCases.Products
             _productRepository = productRepository;
         }
 
-        public void Execute(int id)
+        public async Task Execute(int id)
         {
-            _productRepository.DeleteProduct(id);
+           await _productRepository.DeleteProduct(id);
         }
     }
 }

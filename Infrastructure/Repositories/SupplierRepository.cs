@@ -19,36 +19,36 @@ namespace Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<Supplier> GetSuppliers()
+        public async Task<IEnumerable<Supplier>> GetSuppliers()
         {
-            return _context.Suppliers.ToList();
+            return await _context.Suppliers.ToListAsync();
         }
 
-        public Supplier GetSupplierById(int id)
+        public async Task<Supplier> GetSupplierById(int id)
         {
-            return _context.Suppliers.Find(id);
+            return await _context.Suppliers.FindAsync(id);
         }
 
-        public void AddSupplier(Supplier supplier)
+        public async Task AddSupplier(Supplier supplier)
         {
-           _context.Suppliers.Add(supplier);
-            _context.SaveChanges();
+           await _context.Suppliers.AddAsync(supplier);
+           await _context.SaveChangesAsync();
         }
 
-        public void UpdateSupplier(Supplier supplier)
+        public async Task UpdateSupplier(Supplier supplier)
         {
-           _context.Entry(supplier).State = EntityState.Modified;
-            _context.SaveChanges();
+          _context.Entry(supplier).State = EntityState.Modified;
+           await _context.SaveChangesAsync();
         }
 
-        public void DeleteSupplier(int id)
+        public async Task DeleteSupplier(int id)
         {
-            var supplier = _context.Suppliers.Find(id);
+            var supplier = await _context.Suppliers.FindAsync(id);
 
             if (supplier != null)
             {
                 _context.Suppliers.Remove(supplier);
-                _context.SaveChanges();
+               await _context.SaveChangesAsync();
             }
         }
 

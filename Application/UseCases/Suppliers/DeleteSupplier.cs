@@ -16,9 +16,9 @@ namespace Application.UseCases.Suppliers
             _supplierRepository = supplierRepository;
         }
 
-        public void Execute(int id)
+        public async Task Execute(int id)
         {
-            _supplierRepository.DeleteSupplier(id);
+            await _supplierRepository.DeleteSupplier(id);
         }
     }
 }
