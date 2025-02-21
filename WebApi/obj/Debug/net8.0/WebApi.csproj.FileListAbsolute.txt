@@ -91,3 +91,5 @@ C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebAp
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebApi\obj\Debug\net8.0\WebApi.pdb
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebApi\obj\Debug\net8.0\WebApi.genruntimeconfig.cache
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebApi\obj\Debug\net8.0\ref\WebApi.dll
+C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebApi\bin\Debug\net8.0\AutoMapper.dll
+C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\WebApi\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

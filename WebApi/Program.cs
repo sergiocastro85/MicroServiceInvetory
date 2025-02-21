@@ -5,6 +5,9 @@ using Microsoft.EntityFrameworkCore;
 using Application.UseCases.Products;
 using Microsoft.AspNetCore.Builder;
 using Application.UseCases.Suppliers;
+using Application.Mappings;
+using AutoMapper;
+using Application.UseCases.Categories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +20,10 @@ builder.Services.AddDbContext<InventoryContext>(options =>
 // Register Repositories
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
+builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+
+//Auto Mapper configuration
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 // Register Use Cases
 builder.Services.AddScoped<GetAllProducts>();
@@ -30,6 +37,16 @@ builder.Services.AddScoped<GetSupplierById>();
 builder.Services.AddScoped<AddSupplier>();
 builder.Services.AddScoped<UpdateSupplier>();
 builder.Services.AddScoped<DeleteSupplier>();
+
+builder.Services.AddScoped<GetAllCategory>();
+builder.Services.AddScoped<GetCategoryById>();
+builder.Services.AddScoped<AddCategory>();
+builder.Services.AddScoped<UpdateCategory>();
+builder.Services.AddScoped<DeleteCategory>();
+
+
+
+
 
 // Add CORS configuration
 builder.Services.AddCors(options =>
@@ -46,6 +63,9 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
+
 
 var app = builder.Build();
 

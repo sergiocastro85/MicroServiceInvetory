@@ -1,4 +1,6 @@
-﻿using Application.UseCases.Products;
+﻿using Application.UseCases.DTOs;
+using Application.UseCases.Products;
+using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -16,24 +18,29 @@ namespace WebApi.Controllers
         private readonly UpdateProduct _updateProduct;
         private readonly DeleteProduct _deleteProduct;
 
+        private readonly IMapper _mapper;
+
         public ProductController(GetAllProducts getAllProducts, GetProductById getProductById,
-                                    AddProduct addProduct, UpdateProduct updateProduct, DeleteProduct deleteProduct)
+                                    AddProduct addProduct, UpdateProduct updateProduct, DeleteProduct deleteProduct,
+                                    IMapper mapper)
         {
             _getAllProducts = getAllProducts;
             _getProductById = getProductById;
             _addProduct = addProduct;
             _updateProduct = updateProduct;
             _deleteProduct = deleteProduct;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<ProductDto>> GetProducts()
         {
-            return await _getAllProducts.Execute();
+            var products = await _getAllProducts.Execute();
+            return _mapper.Map<IEnumerable<ProductDto>>(products);
         }
 
         [HttpGet("{id}")]
-        public async Task< ActionResult<Product>> GetProduct(int id) 
+        public async Task< ActionResult<ProductDto>> GetProduct(int id) 
         {
             var product = await _getProductById.Execute(id);
             if (product==null)
@@ -41,7 +48,7 @@ namespace WebApi.Controllers
                 return NotFound();
             }
 
-            return  product;
+            return  _mapper.Map<ProductDto>(product);
         }
 
         [HttpPost]
