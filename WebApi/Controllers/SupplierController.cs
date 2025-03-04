@@ -1,4 +1,6 @@
-﻿using Application.UseCases.Suppliers;
+﻿using Application.UseCases.DTOs;
+using Application.UseCases.Suppliers;
+using AutoMapper;
 using Domain.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -20,46 +22,50 @@ namespace WebApi.Controllers
 
         private readonly DeleteSupplier _deleteSupplier;
 
+        private readonly IMapper _mapper;
+
 
         public SupplierController(GetAllSuppliers getAllSuppliers, GetSupplierById getSupplierById,
-                                  AddSupplier addSupplier, UpdateSupplier updateSupplier, DeleteSupplier deleteSupplier)
+                                  AddSupplier addSupplier, UpdateSupplier updateSupplier, DeleteSupplier deleteSupplier, IMapper mapper)
         {
             _getAllSuppliers = getAllSuppliers;
             _getSupplierById = getSupplierById;
             _addSupplier = addSupplier;
             _updateSupplier = updateSupplier;
             _deleteSupplier = deleteSupplier;
+            _mapper = mapper;
 
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Supplier>> Get()
+        public async Task<IEnumerable<SupplierDto>> Get()
         {
-            return await _getAllSuppliers.Execute();
+            var suppliers = await _getAllSuppliers.Execute();
+            return _mapper.Map<IEnumerable<SupplierDto>>(suppliers);
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Supplier>> GetById(int id)
+        public async Task<ActionResult<SupplierDto>> GetById(int id)
         {
             var supplier = await _getSupplierById.Execute(id);
             if (supplier == null)
             {
                 return NotFound();
             }
-            return supplier;
+            return _mapper.Map<SupplierDto>(supplier);
         }
 
         [HttpPost]
         public async Task<ActionResult<Supplier>> Post([FromBody] Supplier supplier)
         {
             await _addSupplier.Execute(supplier);
-            return CreatedAtAction(nameof(GetById), new { id = supplier.Id }, supplier);
+            return CreatedAtAction(nameof(GetById), new { id = supplier.IdSupplier }, supplier);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> Put(int id, [FromBody] Supplier supplier)
         {
-            if(id != supplier.Id)
+            if(id != supplier.IdSupplier)
             {
                 return BadRequest();
             }

@@ -55,14 +55,14 @@ namespace WebApi.Controllers
         public async Task<ActionResult<Category>> PostCategory([FromBody] Category category)
         {
             await _addCategory.Execute(category);
-            return CreatedAtAction(nameof(GetCategoryById), new { id = category.IdCategory }, category);
+            return CreatedAtAction(nameof(GetCategoryById), new { id = category.Id_category }, category);
         }
 
         // PUT api/<CategoryController>/5
         [HttpPut("{id}")]
         public async Task<ActionResult> PutCategory(int id, [FromBody] Category category)
         {
-            if (id != category.IdCategory)
+            if (id != category.Id_category)
             {
                 return BadRequest();
             }

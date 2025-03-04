@@ -47,3 +47,4 @@ C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\Worke
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\Worker\obj\Debug\net8.0\Worker.pdb
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\Worker\obj\Debug\net8.0\Worker.genruntimeconfig.cache
 C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\Worker\obj\Debug\net8.0\ref\Worker.dll
+C:\Users\acer\Documents\SERGIO PERSONAL\DESARROLLO\MICROSERVICIO\Inventory\Worker\bin\Debug\net8.0\FluentValidation.dll

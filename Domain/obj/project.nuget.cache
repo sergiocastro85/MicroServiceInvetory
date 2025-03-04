@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "K5ArSjIP54VnbZpG+jStdQsk3M90eb/Evs2XnBiYJ/vxTpQ4WuW0TQ3wUVjY2ZsPhYtJI99zM3gQF0/xKf88UA==",
+  "dgSpecHash": "sl0H6b37IGQ1asaJHZXIfr1loOKr5aPZGDw0D8A5jkvv/5Y9tnbPeK99kv7869EXKqnY++i92QDhj7fC3cVBVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\acer\\Documents\\SERGIO PERSONAL\\DESARROLLO\\MICROSERVICIO\\Inventory\\Domain\\Domain.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\acer\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\acer\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",

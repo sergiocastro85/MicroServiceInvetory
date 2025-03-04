@@ -56,13 +56,13 @@ namespace WebApi.Controllers
         {
 
             await _addProduct.Execute(product);
-            return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
+            return CreatedAtAction(nameof(GetProduct), new { id = product.IdProduct }, product);
         }
 
         [HttpPut("{id}")]
         public async Task<ActionResult> PutUpdateProduct(int id, [FromBody] Product product)
         {
-            if (id != product.Id)
+            if (id != product.IdProduct)
             {
                 return BadRequest();
             }

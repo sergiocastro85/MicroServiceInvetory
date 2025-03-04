@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "OGoLz54ydelSIGnT9MnJW+lkfqa9uR6V6DFS0hmuFSbSAjd9p6/np6dgWht/3nZTWytMIH5wE3Y3G0zYJXrO0w==",
+  "dgSpecHash": "URi+ge/iIQRJRrLwKChY5icEV3bhRvZ9RXCzs8d8UmTYVtSZxsY0v8gUbU1D0M0703tmQrz6VaX0AR/1KTha1w==",
   "success": true,
   "projectFilePath": "C:\\Users\\acer\\Documents\\SERGIO PERSONAL\\DESARROLLO\\MICROSERVICIO\\Inventory\\Worker\\Worker.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\acer\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.extensions.configuration\\8.0.0\\microsoft.extensions.configuration.8.0.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\8.0.0\\microsoft.extensions.configuration.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.extensions.configuration.binder\\8.0.0\\microsoft.extensions.configuration.binder.8.0.0.nupkg.sha512",

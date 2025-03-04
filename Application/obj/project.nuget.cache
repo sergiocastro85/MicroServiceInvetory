@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "B6y7pTo2grZ+uvdbySwE+9OiJuf3lcqMmdIc6YCKfIkK4PbKAl67boGgL5eoSMOD4ZPNnYfB5dfspoNE8nuUJQ==",
+  "dgSpecHash": "0adqj1E+d/3OVE8NnA5arxFKQChNm2aZ0x/sZcsW5yriOXWGrOmX6IQKM3SDOSgKmULPgGSE1l39nF2oF4NfaA==",
   "success": true,
   "projectFilePath": "C:\\Users\\acer\\Documents\\SERGIO PERSONAL\\DESARROLLO\\MICROSERVICIO\\Inventory\\Application\\Application.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",
+    "C:\\Users\\acer\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.data.sqlclient\\5.1.6\\microsoft.data.sqlclient.5.1.6.nupkg.sha512",

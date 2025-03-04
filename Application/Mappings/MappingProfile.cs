@@ -15,6 +15,11 @@ namespace Application.Mappings
         {
            CreateMap<ProductDto, Product>();
            CreateMap<Product, ProductDto>();
+
+           CreateMap<SupplierDto, Supplier>();
+           CreateMap<Supplier, SupplierDto>();
+
+            
         }
     }
 }

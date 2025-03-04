@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "H9PGCMjtQ9y+cvIf9iFcs1/bjcDMqPy5jyr7gV675WMgyoTOvpPQ7I/bkaHTzh0/bbJg1A6upHgFBSnSiOrt/w==",
+  "dgSpecHash": "GD/YulSzjjGk6orTE9y1eKWx5ZSYH+oOKHCygniGPZ1X7ZUBnj9WHqohmyU8knm91AyqzZpO7yu1LuvxE675qA==",
   "success": true,
   "projectFilePath": "C:\\Users\\acer\\Documents\\SERGIO PERSONAL\\DESARROLLO\\MICROSERVICIO\\Inventory\\Test\\Test.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\acer\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
+    "C:\\Users\\acer\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.codecoverage\\17.8.0\\microsoft.codecoverage.17.8.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.net.test.sdk\\17.8.0\\microsoft.net.test.sdk.17.8.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.testplatform.objectmodel\\17.8.0\\microsoft.testplatform.objectmodel.17.8.0.nupkg.sha512",
