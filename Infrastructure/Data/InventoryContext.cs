@@ -18,6 +18,9 @@ namespace Infrastructure.Data
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Category> Categories { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -25,6 +28,12 @@ namespace Infrastructure.Data
             modelBuilder.Entity<Product>(entity =>
             {
                 entity.Property(e=>e.Price).HasColumnType("decimal(18,2)");
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.Status).HasDefaultValue("Activo");
+                entity.Property(e => e.CreatedAt).HasDefaultValueSql("getdate()");
             });
         }
 

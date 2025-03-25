@@ -5,9 +5,15 @@ using Microsoft.EntityFrameworkCore;
 using Application.UseCases.Products;
 using Microsoft.AspNetCore.Builder;
 using Application.UseCases.Suppliers;
+using Application.Validators;
 using Application.Mappings;
 using AutoMapper;
 using Application.UseCases.Categories;
+using Application.UseCases.Command.User;
+using Application.Validators;
+using FluentValidation;
+using FluentValidation.AspNetCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,9 +27,20 @@ builder.Services.AddDbContext<InventoryContext>(options =>
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<ISupplierRepository, SupplierRepository>();
 builder.Services.AddScoped<ICategoryRepository, CategoryRepository>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+
+
+//MediaTR
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(AddUserCommand).Assembly));
 
 //Auto Mapper configuration
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+
+//Fluent Validation
+builder.Services.AddFluentValidationAutoValidation();
+builder.Services.AddValidatorsFromAssemblyContaining<CreatedUserValidator>();
+
+
 
 // Register Use Cases
 builder.Services.AddScoped<GetAllProducts>();
@@ -43,6 +60,8 @@ builder.Services.AddScoped<GetCategoryById>();
 builder.Services.AddScoped<AddCategory>();
 builder.Services.AddScoped<UpdateCategory>();
 builder.Services.AddScoped<DeleteCategory>();
+
+
 
 
 
